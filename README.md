@@ -1,10 +1,12 @@
-# Assignment 1
+# Edge Object Detection: Benchmarking and Optimizing Small Vision Models
 
-The report can be found under Assignment1/Assignment1.ipynb and the [wandb report](https://api.wandb.ai/links/trishab/8xad8n5m)
+Comparing six lightweight object detectors (YOLOv8n, YOLO11n, YOLO26n, RT-DETR-R18, YOLO-NAS-S, EfficientDet-Lite0) for real-time, resource-constrained edge deployment, then optimizing the selected model.
 
-# Assignment 2 - Investigating Small Vision Models for Efficient Edge AI Deployment
+**Highlights**
 
-A research assignment comparing five lightweight object detectors for real-time resource-constrained edge deployment.
+- Benchmarked all six detectors on accuracy, latency, model size and deployability, and selected YOLO11n.
+- Optimized YOLO11n with FP16, INT8 calibration, ONNX Runtime and TensorRT: GPU latency 14.2 ms → 7.6 ms (1.9× FPS) with mAP unchanged.
+- Compared lottery-ticket vs magnitude pruning up to 70% sparsity, a YOLO11n + RT-DETR AIFI hybrid, and low-light robustness.
 
 wandb project: [wandb](https://api.wandb.ai/links/trishab/pnk3mw1e)
 
@@ -93,3 +95,9 @@ ffmpeg -ss 34.3 -t 15 -i output/annotated_out.mp4 \
 ```
 
 Q5 to Q12 run in `Assignment2.ipynb` on a Colab GPU runtime. `tensorrt` is deliberately not pip-installed there: it replaces the cuDNN and NCCL wheels that PyTorch links against and breaks training. Ultralytics auto-installs it during the first engine export, which works.
+
+---
+
+### Also in this repo
+
+An MLP built from scratch on Fashion-MNIST: `Assignment1/Assignment1.ipynb` and its [wandb report](https://api.wandb.ai/links/trishab/8xad8n5m).
