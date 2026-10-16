@@ -14,15 +14,15 @@ wandb project: [wandb](https://api.wandb.ai/links/trishab/pnk3mw1e)
 
 | What | Where |
 | --- | --- |
-| Q1 baseline inference, Q3 benchmark and scoring, Q4 demo | `Assignment2/model_preview.ipynb` |
-| Q5 to Q12 (optimization, pruning, hybrid, transfer task) | `Assignment2/Assignment2.ipynb` (Colab) |
-| Q2 literature review | `Assignment2/report/Q2_literature_review.md` |
-| Q3 model selection | `Assignment2/report/Q3_model_selection_criteria.md` |
+| Q1 baseline inference, Q3 benchmark and scoring, Q4 demo | `edge-object-detection/model_preview.ipynb` |
+| Q5 to Q12 (optimization, pruning, hybrid, transfer task) | `edge-object-detection/optimization_and_pruning.ipynb` (Colab) |
+| Q2 literature review | `edge-object-detection/report/Q2_literature_review.md` |
+| Q3 model selection | `edge-object-detection/report/Q3_model_selection_criteria.md` |
 | Q6 charts and Q7 analysis | wandb report linked above |
-| Q1 annotated outputs, one per model | `Assignment2/output/q1_<model>.jpg`, side by side in `q1_all_models.jpg` |
-| Q4 demo clip | `Assignment2/output/demo_clip.mp4` and `demo_clip.gif` |
-| Q4 demo script | `Assignment2/run_demo.py` |
-| YOLO-NAS subprocess wrapper | `Assignment2/yolo_nas_infer.py` |
+| Q1 annotated outputs, one per model | `edge-object-detection/output/q1_<model>.jpg`, side by side in `q1_all_models.jpg` |
+| Q4 demo clip | `edge-object-detection/output/demo_clip.mp4` and `demo_clip.gif` |
+| Q4 demo script | `edge-object-detection/run_demo.py` |
+| YOLO-NAS subprocess wrapper | `edge-object-detection/yolo_nas_infer.py` |
 
 ### Environments
 
@@ -55,7 +55,7 @@ Admitting super-gradients to the main environment would have frozen the entire p
 ### Setup
 
 ```bash
-cd Assignment2
+cd edge-object-detection
 
 python3.12 -m venv .venv       && ./.venv/bin/pip install -r requirements.txt
 python3.10 -m venv .venv-nas   && ./.venv-nas/bin/pip install -r requirements-yolonas.txt
@@ -94,10 +94,10 @@ ffmpeg -ss 34.3 -t 15 -i output/annotated_out.mp4 \
        -vf "fps=10,scale=640:-1:flags=lanczos" output/demo_clip.gif
 ```
 
-Q5 to Q12 run in `Assignment2.ipynb` on a Colab GPU runtime. `tensorrt` is deliberately not pip-installed there: it replaces the cuDNN and NCCL wheels that PyTorch links against and breaks training. Ultralytics auto-installs it during the first engine export, which works.
+Q5 to Q12 run in `optimization_and_pruning.ipynb` on a Colab GPU runtime. `tensorrt` is deliberately not pip-installed there: it replaces the cuDNN and NCCL wheels that PyTorch links against and breaks training. Ultralytics auto-installs it during the first engine export, which works.
 
 ---
 
 ### Also in this repo
 
-An MLP built from scratch on Fashion-MNIST: `Assignment1/Assignment1.ipynb` and its [wandb report](https://api.wandb.ai/links/trishab/8xad8n5m).
+An MLP built from scratch on Fashion-MNIST: `fashion-mnist-mlp/fashion_mnist_mlp.ipynb` and its [wandb report](https://api.wandb.ai/links/trishab/8xad8n5m).

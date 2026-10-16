@@ -19,9 +19,9 @@ runs/
 
 # Videos are large: ignore by default, but the demo clip is a deliverable.
 *.mp4
-!Assignment2/report/demo.mp4
+!edge-object-detection/report/demo.mp4
 
-# NOTE: Assignment2/outputs/ is deliberately NOT ignored - the annotated Q1
+# NOTE: edge-object-detection/outputs/ is deliberately NOT ignored - the annotated Q1
 # images are a required deliverable and the report embeds them.
 
 # OS
@@ -30,14 +30,14 @@ runs/
 .venv-nas/
 
 # Datasets - re-downloadable, see README
-Assignment2/data/
+edge-object-detection/data/
 
 *.mp4
-!Assignment2/output/demo_clip.mp4
+!edge-object-detection/output/demo_clip.mp4
 
 # Local backups, not part of the submission
 *_prerefactor.ipynb
 *_raw.ipynb
 
-# Superseded by Assignment2.ipynb
-Assignment2/model_Retraining.ipynb
+# Superseded by optimization_and_pruning.ipynb
+edge-object-detection/model_Retraining.ipynb

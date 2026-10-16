@@ -63,7 +63,7 @@ video: 19.93 average FPS, 47.85 ms average inference latency. The 15 second clip
 from 34.3 s, where all four classes appear.
 
 ### Q5 - Model Optimization & Pruning
-[`Assignment2.ipynb`](../Assignment2.ipynb)
+[`optimization_and_pruning.ipynb`](../optimization_and_pruning.ipynb)
 
 `benchmark()` is the shared export-and-measure pipeline every variant plugs into. Variants:
 FP16, INT8 (250-image calibration set, above the 200 required), ONNX Runtime, TensorRT.
@@ -74,7 +74,7 @@ COCO train2017 is 19 GB, so val2017 is split 4000/1000 and all pruning accuracy 
 reported on the held-out 1000.
 
 ### Q6 - Benchmarking
-[`Assignment2.ipynb`](../Assignment2.ipynb) · wandb report
+[`optimization_and_pruning.ipynb`](../optimization_and_pruning.ipynb) · wandb report
 
 mAP, FPS, latency mean and standard deviation, model size, GPU and CPU utilisation and
 startup time, each over 100 iterations after 10 warm-up passes. The three required panels
@@ -88,7 +88,7 @@ FP16 is the variant to ship, at 7.62 ms and 131.31 FPS against the baseline's 14
 70.48 FPS, with mAP unchanged.
 
 ### Q8 - Loss Function Comparison
-[`Assignment2.ipynb`](../Assignment2.ipynb)
+[`optimization_and_pruning.ipynb`](../optimization_and_pruning.ipynb)
 
 Ultralytics uses `BCEWithLogitsLoss` rather than softmax cross-entropy, so this compares
 BCE against focal-BCE. Per-epoch mAP curves and a final-mAP bar chart for both.
@@ -96,7 +96,7 @@ BCE against focal-BCE. Per-epoch mAP curves and a final-mAP bar chart for both.
 BCE 0.3702 against focal 0.3667. BCE leads at every epoch, not only at the end.
 
 ### Q9 - Hybrid Architecture
-[`Assignment2.ipynb`](../Assignment2.ipynb) · architecture in `yolo11n-aifi.yaml`
+[`optimization_and_pruning.ipynb`](../optimization_and_pruning.ipynb) · architecture in `yolo11n-aifi.yaml`
 
 YOLO11n with RT-DETR's AIFI encoder replacing YOLO11's C2PSA block at P5. Both the hybrid
 and a control trained 10 epochs on identical data, so architecture is the only difference.
@@ -111,7 +111,7 @@ block that cannot inherit pretrained weights, and at 3 epochs the gap was 16 poi
 against 10.3 here, so the deficit is convergence rather than architecture.
 
 ### Q10 - Additional Pruning Technique
-[`Assignment2.ipynb`](../Assignment2.ipynb)
+[`optimization_and_pruning.ipynb`](../optimization_and_pruning.ipynb)
 
 Magnitude pruning with fine-tuning and no rewinding, run under the identical protocol to
 the Q5 lottery-ticket rounds. Only one variable changes: each round keeps the previous
@@ -146,7 +146,7 @@ YOLO-NAS weight workaround, and the model-source deviations from the brief. Ever
 in this report comes from a run logged to the wandb project.
 
 ### Q12 - Transfer Task
-[`Assignment2.ipynb`](../Assignment2.ipynb)
+[`optimization_and_pruning.ipynb`](../optimization_and_pruning.ipynb)
 
 Two of five models tested for low-light indoor deployment: YOLO11n (the Q3 winner) and
 RT-DETR-R18 (best small-object recall in Q1). Evaluated on the same 1000-image held-out
